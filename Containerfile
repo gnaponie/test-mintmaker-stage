@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/ubi9/ubi:latest@sha256:66233eebd72bb5baa25190d4f55e1dc3fff3a9b77186c1f91a0abdb274452072 as builder
+FROM registry.access.redhat.com/ubi9/ubi:latest@sha256:368ffd55e147ecc20713044bfd5c9299cedf824bad667e87a846b8d4635a1078 as builder
 RUN dnf -y install golang
 
 WORKDIR /go/src/mikefarah/yq
@@ -11,7 +11,7 @@ RUN CGO_ENABLED=0 go build -ldflags "-s -w" .
 RUN ./scripts/acceptance.sh
 
 # Rebase on ubi9
-FROM registry.access.redhat.com/ubi9:latest@sha256:66233eebd72bb5baa25190d4f55e1dc3fff3a9b77186c1f91a0abdb274452072
+FROM registry.access.redhat.com/ubi9:latest@sha256:368ffd55e147ecc20713044bfd5c9299cedf824bad667e87a846b8d4635a1078
 
 COPY --from=builder /go/src/mikefarah/yq/yq /usr/bin/yq
 
