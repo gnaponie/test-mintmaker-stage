@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/ubi9/ubi:9.3
+FROM registry.access.redhat.com/ubi9/ubi:9.4-1123
 RUN dnf -y install golang
 
 WORKDIR /go/src/mikefarah/yq
