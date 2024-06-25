@@ -11,7 +11,7 @@ RUN CGO_ENABLED=0 go build -ldflags "-s -w" .
 RUN ./scripts/acceptance.sh
 
 # Rebase on ubi9
-FROM registry.access.redhat.com/ubi9:latest@sha256:368ffd55e147ecc20713044bfd5c9299cedf824bad667e87a846b8d4635a1078
+FROM registry.access.redhat.com/ubi9:latest@sha256:670f80d555117da5917dc4b7323926f47af5c6fade17cf55a174d37a0468a14a
 
 COPY --from=builder /go/src/mikefarah/yq/yq /usr/bin/yq
 
