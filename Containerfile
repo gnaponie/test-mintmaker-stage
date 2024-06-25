@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/ubi9/ubi:latest@sha256:368ffd55e147ecc20713044bfd5c9299cedf824bad667e87a846b8d4635a1078 as builder
+FROM registry.access.redhat.com/ubi9/ubi:9.3
 RUN dnf -y install golang
 
 WORKDIR /go/src/mikefarah/yq
